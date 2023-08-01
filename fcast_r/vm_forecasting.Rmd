@@ -17,7 +17,7 @@ library(pacman)
 pacman::p_load(keyring, # passwords for snowflake
                tidyverse, # data manipulation
                odbc, DBI, # query snowflake
-               lbridate, # date manipulation
+               lubridate, # date manipulation
                fpp3 # forecasting
 )
 
@@ -42,16 +42,16 @@ myconn <- DBI::dbConnect(odbc::odbc(), "Snowflake", uid = key_get("MY_SF_UID"), 
 
 
 ```{r query, include = FALSE}
-df <- DBI::dbGetQuery(myconn, 'SELECT * FROM ANALYTICS.FORECASTING."sales_fcast_combined_v"')
+#df <- DBI::dbGetQuery(myconn, 'SELECT * FROM ANALYTICS.FORECASTING."sales_fcast_combined_v"')
 
-#save.image("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
+#save.image("C:/Users/crudek/Github/practical/fcast_r/after_query_workspace.RData")
 ```
 
 ### Load data
 
 ```{r}
 #save.image("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
-load("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
+load("C:/Users/crudek/Github/practical/fcast_r/after_query_workspace.RData")
 ```
 
 
