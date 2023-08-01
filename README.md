@@ -2,5 +2,5 @@
 
 
 * Regression
-* T.Test
+* T.Test of means
 * Forecasting
