@@ -1,0 +1,199 @@
+---
+title: "Vitamix Forecasting"
+author: "Carter Rudek"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Packages
+
+```{r Setup, Packages and Environment, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+
+# Packages
+library(pacman)
+pacman::p_load(keyring, # passwords for snowflake
+               tidyverse, # data manipulation
+               odbc, DBI, # query snowflake
+               lubridate, # date manipulation
+               fpp3 # forecasting
+)
+
+```
+
+
+# Preliminary Steps
+
+```{r Snowflake}
+# snowflake user id and password. Need to run individually and type in textbox.
+key_set("MY_SF_UID")
+```
+
+```{r Snowflake}
+key_set("MY_SF_PW")
+```
+
+```{r Connection, include = FALSE}
+# snowflake connection
+myconn <- DBI::dbConnect(odbc::odbc(), "Snowflake", uid = key_get("MY_SF_UID"), pwd = key_get("MY_SF_PW"))
+```
+
+
+```{r query, include = FALSE}
+#df <- DBI::dbGetQuery(myconn, 'SELECT * FROM ANALYTICS.FORECASTING."sales_fcast_combined_v"')
+
+#save.image("C:/Users/crudek/Github/practical/fcast_r/after_query_workspace.RData")
+```
+
+### Load data
+
+```{r}
+#save.image("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
+load("C:/Users/crudek/Github/practical/fcast_r/after_query_workspace.RData")
+```
+
+
+___________________________________________________________________________________________________________________________________________________________
+
+# training models
+
+```{r}
+df_ts_all <- df %>%
+  mutate(MONTH = yearmonth(lubridate::ymd(MONTH))) %>%
+  select(DEP_ENT, MONTH, NET_SALES) %>%
+  mutate(NET_SALES = round(NET_SALES)) %>%
+  select(DEP_ENT, MONTH, NET_SALES) %>%
+  group_by(DEP_ENT, MONTH) %>%
+  summarise(NET_SALES = sum(NET_SALES)) %>%
+  as_tsibble(index = MONTH, key = DEP_ENT)
+```
+
+
+```{r}
+# training dataset for modeling
+# we need to do this to determine which model is the best for each series
+df_ts_all_train <- df_ts_all %>%
+  filter_index(.~"2022 April") # hold out 14 months (20%) of data
+```
+
+# Fit Models
+
+```{r}
+fit_all <- df_ts_all_train %>%
+  model(
+    'ets' = ETS(NET_SALES),
+    'arm' = ARIMA(NET_SALES)
+  )
+```
+
+
+```{r}
+# explore models
+report(fit_all)
+```
+
+
+```{r}
+# forecast using created models
+# extract components and reshape data 
+fcast_all <- fit_all %>%
+  fabletools::forecast(h = 14) %>%
+  as.data.frame() %>%
+  select(-NET_SALES) %>%
+  pivot_wider(names_from = '.model', values_from = '.mean')
+```
+
+
+_________________________________________________________________________________________________________________________________________________________
+
+# forward looking models
+
+```{r}
+# no training, use all the data that we have to forecast for months that havent happened yet
+df_ts_all_train2 <- df_ts_all %>%
+  filter_index(.~"2023 June") # this is the month that we are running it in
+```
+
+# Fit Models
+
+```{r}
+fit_all2 <- df_ts_all_train2 %>%
+  model(
+    'ets' = ETS(NET_SALES),
+    'arm' = ARIMA(NET_SALES)
+  )
+```
+
+
+```{r}
+# explore models
+report(fit_all2)
+```
+
+
+```{r}
+# forecast using created models
+# extract components and reshape data 
+fcast_all2 <- fit_all2 %>%
+  fabletools::forecast(h = 6) %>% # we are running this in July. The models use data up until June 2023. we want to forecast the last 6 months of 2023
+  as.data.frame() %>%
+  select(-NET_SALES) %>%
+  pivot_wider(names_from = '.model', values_from = '.mean')
+```
+
+
+________________________________________________________________________________________________________________________________________________________
+
+# Combine new forecasts with original data
+
+```{r}
+combined_data <- df %>%
+  left_join(union(fcast_all, fcast_all2), by = join_by(DEP_ENT, MONTH)) %>%
+  mutate(ETS_ARM_AVG = (arm+ets)/2) %>%
+  rename(SF_FCAST = FORECAST, ETS = ets, ARIMA = arm) %>%
+  arrange(DEP_ENT, MONTH) 
+```
+
+# Write back to snowflake
+
+```{r}
+# make sure you are connected to database
+table_id <- Id(database="ANALYTICS", schema="FORECASTING", table="sales_fcast_combined_t")
+dbWriteTable(myconn, table_id, combined_data, append = F, overwrite = T, verbose = T)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

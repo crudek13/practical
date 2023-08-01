@@ -1,5 +1,6 @@
-# Forecast Budget Analysis
+# Practical Business Data Analytics Applications
 
-T.Tests for:
-- Forecast and Budget - paired = TRUE
-- Forecast and Budget MAPEs - paired = TRUE
+
+* Regression
+* T.Test of means
+* Forecasting

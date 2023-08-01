@@ -1,0 +1,406 @@
+---
+title: "Snowflake ML Analysis vs Budget"
+author: "Carter Rudek"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Packages
+
+```{r Setup, Packages and Environment, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+
+# Packages
+library(pacman)
+pacman::p_load(keyring, openxlsx, DBI, odbc, readr, dbplyr, gridExtra, slider, GGally, seasonal, fpp3, htmltools, devtools, feasts, tidyverse, lubridate, MLmetrics, blscrapeR, scales, ggrepel)
+
+```
+
+
+# Preliminary Steps
+
+```{r Snowflake}
+# snowflake user id and password. Need to run individually and type in textbox.
+key_set("MY_SF_UID")
+```
+
+```{r Snowflake}
+key_set("MY_SF_PW")
+```
+
+```{r Connection}
+# snowflake connection
+myconn <- DBI::dbConnect(odbc::odbc(), "Snowflake", uid = key_get("MY_SF_UID"), pwd = key_get("MY_SF_PW"))
+```
+
+
+```{r query}
+df <- DBI::dbGetQuery(myconn, 'SELECT * FROM ANALYTICS.FORECASTING."sales_fcast_combined_v"')
+
+#save.image("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
+```
+
+Load data
+
+```{r}
+load("C:/Users/crudek/Github/practical/fcast_analysis/fcast_budget_analysis/after_query_workspace.RData")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+______________________________________________________________________________________________________________________________________
+
+Test for All departments
+
+
+```{r}
+# create tsibble
+df_ts_all <- df %>%
+  filter(DEP_ENT %in% c('160_155', '200_155', '200_310', '210_155', '210_165', '210_310', '220_155', '250_155', '250_310')) %>%
+  mutate(MONTH = yearmonth(lubridate::ymd(MONTH))) %>%
+  mutate(NET_SALES = round(NET_SALES)) %>%
+  select(DEP_ENT, MONTH, NET_SALES) %>%
+  group_by(DEP_ENT, MONTH) %>%
+  summarise(NET_SALES = sum(NET_SALES)) %>%
+  as_tsibble(index = MONTH, key = DEP_ENT)
+```
+
+
+```{r}
+# training dataset
+df_ts_all_train <- df_ts_all %>%
+  filter_index(.~"2022 April")
+```
+
+
+```{r}
+fit_all <- df_ts_all_train %>%
+  model(
+    'ets' = ETS(NET_SALES),
+    'arm' = ARIMA(NET_SALES)
+  )
+```
+
+
+```{r}
+report(fit_all)
+```
+
+
+```{r}
+# extract components and reshape data 
+fcast_all <- fit_all %>%
+  fabletools::forecast(h = 14) %>%
+  as.data.frame() %>%
+  select(-NET_SALES) %>%
+  pivot_wider(names_from = '.model', values_from = '.mean')
+```
+
+
+```{r}
+combined_data <- df %>%
+  filter(DEP_ENT %in% c('160_155', '200_155', '200_310', '210_155', '210_165', '210_310', '220_155', '250_155', '250_310')) %>%
+  left_join(fcast_all, by = join_by(DEP_ENT, MONTH)) 
+
+combined_data_2 <- combined_data %>%
+  mutate(ets_arm_avg = (arm+ets)/2)
+```
+
+
+```{r}
+# make sure you are connected to database
+table_id <- Id(database="ANALYTICS", schema="FORECASTING", table="sales_fcast_combined_t")
+dbWriteTable(myconn, table_id, combined_data_2, append = F, overwrite = T, verbose = T)
+```
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Iteration 2
+## Forecast for the rest of 2023 for Mike
+
+
+```{r}
+# no dataset, using all data
+fit_all <- df_ts_all %>%
+  model(
+    'ets' = ETS(NET_SALES),
+    'arm' = ARIMA(NET_SALES)
+  )
+```
+
+
+```{r}
+report(fit_all)
+```
+
+
+```{r}
+# extract components and reshape data 
+fcast_all <- fit_all %>%
+  fabletools::forecast(h = 6) %>%
+  as.data.frame() %>%
+  select(-NET_SALES) %>%
+  pivot_wider(names_from = '.model', values_from = '.mean') %>%
+  mutate(ets_arm_avg = (arm+ets)/2)
+```
+
+
+
+```{r}
+write.csv(fcast_all, "q3_q4_2023_fcast.csv", row.names = TRUE)
+```
+
+
+
+
+
+__________________________________________________________________________________________________________________________
+
+Misc:
+
+
+
+```{r}
+# create tsibble
+df_ts_train <- df %>%
+  filter(MONTH <= '2022-04-01') %>%
+  filter(DEP_ENT %in% c('160_155', '200_155', '200_310', '210_155', '210_165', '210_310', '220_155', '250_155', '250_310')) %>%
+
+
+  select(DEP_ENT, MONTH, NET_SALES) %>%
+  as_tsibble(index = MONTH, key = DEP_ENT)
+```
+
+
+```{r}
+fcast <- fit %>% 
+  forecast(h = 12)
+```
+
+
+```{r}
+fcasts <- df_ts %>%
+  group_by(DEP_ENT) %>%
+  model(ets = ETS(NET_SALES),
+        arm = ARIMA(NET_SALES))
+```
+
+
+
+# T Test of Means of predictions
+
+```{r}
+# there is a statistically significant difference in means - the forecast generated is different than the budget
+t.test(df_1$BUDGET, df_1$FORECAST, paired=TRUE)
+```
+
+```{r}
+df_2 <- df_1 %>%
+  mutate(Bud_Err = NET_SALES - BUDGET, 
+         Fcas_Err = NET_SALES - FORECAST,
+         Abs_Bud_Err = abs(Bud_Err),
+         Abs_Fcas_Err = abs(Fcas_Err),
+         Abs_Bud_Err_per = abs(Bud_Err)/abs(NET_SALES),
+         Abs_Fcas_Err_per = abs(Fcas_Err)/abs(NET_SALES)) %>%
+  group_by(DEP_ENT) %>%
+  summarise(Bud_mape = mean(Abs_Bud_Err_per)*100,
+            Fcas_mape = mean(Abs_Fcas_Err_per)*100)
+```
+
+# T Test of Means of MAPEs
+
+```{r}
+# there is a statistically significant difference in means of mapes
+t.test(df_2$Bud_mape, df_2$Fcas_mape, paired=TRUE)
+```
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# ARIMA FOR EACH DEPARTMENT
+
+```{r}
+df_arima_ts <- df_1 %>%
+  mutate(month = yearmonth(lubridate::ymd(MONTH))) %>%
+  select(DEP_ENT, month, NET_SALES) %>%
+  as_tsibble(index = month, key = DEP_ENT)
+```
+
+# The fable::ARIMA() function is equivalent to forecast::auto.arima()
+
+```{r}
+df_arima_ts %>%
+  model(fable::ARIMA(NET_SALES))
+```
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ARIMA for each department
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(lubridate)
+library(forecast)
+library(aTSA)
+```
+
+Refine dataset
+
+```{r}
+df3 <- df %>%
+  filter(DEP_ENT %in% c('160_155', '200_155', '200_310', '210_155', '210_165', '210_310', '220_155', '250_155', '250_310')) %>%
+  select(DEP_ENT, MONTH, NET_SALES) %>%
+  arrange(MONTH)
+```
+
+
+EDA
+
+```{r}
+# Check for missing values - GOOD
+sum(is.na(df4))
+
+# Handle missing values if necessary
+# sales_data <- sales_data %>% fill(sales, .direction = "updown") # Example of filling missing values using the 'fill' function from 'tidyr' package
+
+# Plot the time series for each department
+ggplot(df4, aes(x = MONTH, y = NET_SALES, color = DEP_ENT)) +
+  geom_line() +
+  facet_wrap(~DEP_ENT, scales = "free_y") +
+  theme_minimal()
+```
+
+```{r}
+df4_ts <- df4 %>%
+  mutate(month = yearmonth(lubridate::ymd(MONTH))) %>%
+  select(DEP_ENT, month, NET_SALES) %>%
+  as_tsibble(index = month, key = DEP_ENT)
+```
+
+
+```{r}
+library(hts)
+```
+
+
+```{r}
+forecast(prison.gts, method="bu", fmethod="arima")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+test <- df4_ts %>% 
+  features(NET_SALES, c(unitroot_kpss, unitroot_ndiffs, unitroot_nsdiffs))
+```
+
+
+```{r}
+tt <- inner_join(df4_ts, test)
+```
+
+```{r}
+# no differencing needed
+no_diff <- tt %>%
+  filter(ndiffs == 0 & nsdiffs == 0) %>%
+  select(DEP_ENT, month, NET_SALES) %>%
+  as.data.frame()
+
+# seasonal diff
+s_diff <- tt %>%
+  filter(nsdiffs == 1) %>%
+  group_by(DEP_ENT) %>%
+  arrange(DEP_ENT, month) %>%
+  mutate(NET_SALES = difference(NET_SALES, 12)) %>%
+  select(DEP_ENT, month, NET_SALES) %>%
+  as.data.frame()
+
+# diff
+diff <- tt %>%
+  filter(ndiffs == 1 & nsdiffs == 0) %>%
+  group_by(DEP_ENT) %>%
+  arrange(DEP_ENT, month) %>%
+  mutate(NET_SALES = difference(NET_SALES, 1)) %>%
+  select(DEP_ENT, month, NET_SALES) %>%
+  as.data.frame() 
+
+
+final_ts <- rbind(no_diff, s_diff, diff) %>%
+  as_tsibble(index = month, key = DEP_ENT)
+  
+
+```
+
+
+
+# all seem to be good now
+
+```{r}
+test2 <- final_ts %>% 
+  features(NET_SALES, c(unitroot_kpss, unitroot_ndiffs, unitroot_nsdiffs))
+
+test2
+```
+
+
+```{r}
+# Plot the time series for each department AFTER being differenced
+ggplot(final_ts, aes(x = month, y = NET_SALES, color = DEP_ENT)) +
+  geom_line() +
+  facet_wrap(~DEP_ENT, scales = "free_y") +
+  theme_minimal()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
