@@ -362,7 +362,7 @@ combined_data <- df %>%
 ```{r}
 # make sure you are connected to database
 table_id <- Id(database="ANALYTICS", schema="FORECASTING", table="sales_fcast_combined_t")
-dbWriteTable(myconn, table_id, combined_data, append = F, overwrite = T, verbose = T)
+DBI::dbWriteTable(myconn, table_id, combined_data, append = FALSE, overwrite = T, verbose = T)
 ```
 
 
