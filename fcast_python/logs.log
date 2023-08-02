@@ -917,3 +917,1062 @@
                                 objective='reg:squarederror',
                                 power_transformer_method='box-cox', ...)
 2023-08-02 11:54:09,071:INFO:compare_models() succesfully completed......................................
+2023-08-02 11:55:33,459:INFO:Initializing compare_models()
+2023-08-02 11:55:33,459:INFO:compare_models(include=None, fold=None, round=4, cross_validation=True, sort=MAPE, n_select=1, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, verbose=True, display=None, exclude=None)
+2023-08-02 11:55:33,459:INFO:Checking exceptions
+2023-08-02 11:55:33,459:INFO:Preparing display monitor
+2023-08-02 11:55:33,459:INFO:Preparing display monitor
+2023-08-02 11:55:33,474:INFO:Initializing Linear Regression
+2023-08-02 11:55:33,475:INFO:Total runtime is 1.6562143961588542e-05 minutes
+2023-08-02 11:55:33,479:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:33,479:INFO:Initializing create_model()
+2023-08-02 11:55:33,479:INFO:create_model(estimator=lr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:33,479:INFO:Checking exceptions
+2023-08-02 11:55:33,479:INFO:Importing libraries
+2023-08-02 11:55:33,479:INFO:Copying training dataset
+2023-08-02 11:55:33,480:INFO:Defining folds
+2023-08-02 11:55:33,480:INFO:Declaring metric variables
+2023-08-02 11:55:33,484:INFO:Importing untrained model
+2023-08-02 11:55:33,488:INFO:Linear Regression Imported succesfully
+2023-08-02 11:55:33,496:INFO:Starting cross validation
+2023-08-02 11:55:33,496:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:33,521:INFO:Calculating mean and std
+2023-08-02 11:55:33,522:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,525:INFO:Uploading results into container
+2023-08-02 11:55:33,525:INFO:Uploading model into container now
+2023-08-02 11:55:33,525:INFO:create_model_container: 20
+2023-08-02 11:55:33,525:INFO:master_model_container: 20
+2023-08-02 11:55:33,525:INFO:display_container: 3
+2023-08-02 11:55:33,525:INFO:PowerTransformedTargetRegressor(copy_X=True, fit_intercept=True, n_jobs=-1,
+                                normalize='deprecated', positive=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                regressor=LinearRegression(copy_X=True,
+                                                           fit_intercept=True,
+                                                           n_jobs=-1,
+                                                           normalize='deprecated',
+                                                           positive=False))
+2023-08-02 11:55:33,526:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:33,649:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:33,649:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,655:INFO:Initializing Lasso Regression
+2023-08-02 11:55:33,655:INFO:Total runtime is 0.0030041972796122232 minutes
+2023-08-02 11:55:33,660:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:33,660:INFO:Initializing create_model()
+2023-08-02 11:55:33,661:INFO:create_model(estimator=lasso, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:33,661:INFO:Checking exceptions
+2023-08-02 11:55:33,661:INFO:Importing libraries
+2023-08-02 11:55:33,661:INFO:Copying training dataset
+2023-08-02 11:55:33,661:INFO:Defining folds
+2023-08-02 11:55:33,662:INFO:Declaring metric variables
+2023-08-02 11:55:33,665:INFO:Importing untrained model
+2023-08-02 11:55:33,669:INFO:Lasso Regression Imported succesfully
+2023-08-02 11:55:33,676:INFO:Starting cross validation
+2023-08-02 11:55:33,677:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:33,693:INFO:Calculating mean and std
+2023-08-02 11:55:33,694:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,696:INFO:Uploading results into container
+2023-08-02 11:55:33,696:INFO:Uploading model into container now
+2023-08-02 11:55:33,697:INFO:create_model_container: 21
+2023-08-02 11:55:33,697:INFO:master_model_container: 21
+2023-08-02 11:55:33,697:INFO:display_container: 3
+2023-08-02 11:55:33,697:INFO:PowerTransformedTargetRegressor(alpha=1.0, copy_X=True, fit_intercept=True,
+                                max_iter=1000, normalize='deprecated',
+                                positive=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                precompute=False, random_state=123,
+                                regressor=Lasso(alpha=1.0, copy_X=True,
+                                                fit_intercept=True,
+                                                max_iter=1000,
+                                                normalize='deprecated',
+                                                positive=False,
+                                                precompute=False,
+                                                random_state=123,
+                                                selection='cyclic', tol=0.0001,
+                                                warm_start=False),
+                                selection='cyclic', tol=0.0001,
+                                warm_start=False)
+2023-08-02 11:55:33,697:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:33,807:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:33,807:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,813:INFO:Initializing Ridge Regression
+2023-08-02 11:55:33,813:INFO:Total runtime is 0.005645978450775146 minutes
+2023-08-02 11:55:33,819:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:33,820:INFO:Initializing create_model()
+2023-08-02 11:55:33,820:INFO:create_model(estimator=ridge, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:33,820:INFO:Checking exceptions
+2023-08-02 11:55:33,820:INFO:Importing libraries
+2023-08-02 11:55:33,820:INFO:Copying training dataset
+2023-08-02 11:55:33,821:INFO:Defining folds
+2023-08-02 11:55:33,821:INFO:Declaring metric variables
+2023-08-02 11:55:33,825:INFO:Importing untrained model
+2023-08-02 11:55:33,828:INFO:Ridge Regression Imported succesfully
+2023-08-02 11:55:33,837:INFO:Starting cross validation
+2023-08-02 11:55:33,837:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:33,854:INFO:Calculating mean and std
+2023-08-02 11:55:33,855:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,857:INFO:Uploading results into container
+2023-08-02 11:55:33,857:INFO:Uploading model into container now
+2023-08-02 11:55:33,857:INFO:create_model_container: 22
+2023-08-02 11:55:33,857:INFO:master_model_container: 22
+2023-08-02 11:55:33,858:INFO:display_container: 3
+2023-08-02 11:55:33,858:INFO:PowerTransformedTargetRegressor(alpha=1.0, copy_X=True, fit_intercept=True,
+                                max_iter=None, normalize='deprecated',
+                                positive=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=123,
+                                regressor=Ridge(alpha=1.0, copy_X=True,
+                                                fit_intercept=True,
+                                                max_iter=None,
+                                                normalize='deprecated',
+                                                positive=False,
+                                                random_state=123, solver='auto',
+                                                tol=0.001),
+                                solver='auto', tol=0.001)
+2023-08-02 11:55:33,858:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:33,964:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:33,964:INFO:Creating metrics dataframe
+2023-08-02 11:55:33,971:INFO:Initializing Elastic Net
+2023-08-02 11:55:33,971:INFO:Total runtime is 0.008271539211273193 minutes
+2023-08-02 11:55:33,976:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:33,976:INFO:Initializing create_model()
+2023-08-02 11:55:33,976:INFO:create_model(estimator=en, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:33,976:INFO:Checking exceptions
+2023-08-02 11:55:33,977:INFO:Importing libraries
+2023-08-02 11:55:33,977:INFO:Copying training dataset
+2023-08-02 11:55:33,977:INFO:Defining folds
+2023-08-02 11:55:33,977:INFO:Declaring metric variables
+2023-08-02 11:55:33,981:INFO:Importing untrained model
+2023-08-02 11:55:33,985:INFO:Elastic Net Imported succesfully
+2023-08-02 11:55:33,993:INFO:Starting cross validation
+2023-08-02 11:55:33,993:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,010:INFO:Calculating mean and std
+2023-08-02 11:55:34,010:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,013:INFO:Uploading results into container
+2023-08-02 11:55:34,013:INFO:Uploading model into container now
+2023-08-02 11:55:34,013:INFO:create_model_container: 23
+2023-08-02 11:55:34,013:INFO:master_model_container: 23
+2023-08-02 11:55:34,013:INFO:display_container: 3
+2023-08-02 11:55:34,013:INFO:PowerTransformedTargetRegressor(alpha=1.0, copy_X=True, fit_intercept=True,
+                                l1_ratio=0.5, max_iter=1000,
+                                normalize='deprecated', positive=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                precompute=False, random_state=123,
+                                regressor=ElasticNet(alpha=1.0, copy_X=True,
+                                                     fit_intercept=True,
+                                                     l1_ratio=0.5,
+                                                     max_iter=1000,
+                                                     normalize='deprecated',
+                                                     positive=False,
+                                                     precompute=False,
+                                                     random_state=123,
+                                                     selection='cyclic',
+                                                     tol=0.0001,
+                                                     warm_start=False),
+                                selection='cyclic', tol=0.0001,
+                                warm_start=False)
+2023-08-02 11:55:34,014:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,118:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,118:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,125:INFO:Initializing Least Angle Regression
+2023-08-02 11:55:34,125:INFO:Total runtime is 0.010848776499430338 minutes
+2023-08-02 11:55:34,130:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,130:INFO:Initializing create_model()
+2023-08-02 11:55:34,131:INFO:create_model(estimator=lar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,131:INFO:Checking exceptions
+2023-08-02 11:55:34,131:INFO:Importing libraries
+2023-08-02 11:55:34,131:INFO:Copying training dataset
+2023-08-02 11:55:34,131:INFO:Defining folds
+2023-08-02 11:55:34,132:INFO:Declaring metric variables
+2023-08-02 11:55:34,135:INFO:Importing untrained model
+2023-08-02 11:55:34,139:INFO:Least Angle Regression Imported succesfully
+2023-08-02 11:55:34,146:INFO:Starting cross validation
+2023-08-02 11:55:34,147:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,168:INFO:Calculating mean and std
+2023-08-02 11:55:34,168:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,171:INFO:Uploading results into container
+2023-08-02 11:55:34,171:INFO:Uploading model into container now
+2023-08-02 11:55:34,171:INFO:create_model_container: 24
+2023-08-02 11:55:34,171:INFO:master_model_container: 24
+2023-08-02 11:55:34,171:INFO:display_container: 3
+2023-08-02 11:55:34,172:INFO:PowerTransformedTargetRegressor(copy_X=True, eps=2.220446049250313e-16,
+                                fit_intercept=True, fit_path=True, jitter=None,
+                                n_nonzero_coefs=500, normalize='deprecated',
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                precompute='auto', random_state=123,
+                                regressor=Lars(copy_X=True,
+                                               eps=2.220446049250313e-16,
+                                               fit_intercept=True,
+                                               fit_path=True, jitter=None,
+                                               n_nonzero_coefs=500,
+                                               normalize='deprecated',
+                                               precompute='auto',
+                                               random_state=123,
+                                               verbose=False),
+                                verbose=False)
+2023-08-02 11:55:34,172:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,276:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,276:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,283:INFO:Initializing Lasso Least Angle Regression
+2023-08-02 11:55:34,283:INFO:Total runtime is 0.013483047485351562 minutes
+2023-08-02 11:55:34,288:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,288:INFO:Initializing create_model()
+2023-08-02 11:55:34,288:INFO:create_model(estimator=llar, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,288:INFO:Checking exceptions
+2023-08-02 11:55:34,289:INFO:Importing libraries
+2023-08-02 11:55:34,289:INFO:Copying training dataset
+2023-08-02 11:55:34,289:INFO:Defining folds
+2023-08-02 11:55:34,289:INFO:Declaring metric variables
+2023-08-02 11:55:34,293:INFO:Importing untrained model
+2023-08-02 11:55:34,297:INFO:Lasso Least Angle Regression Imported succesfully
+2023-08-02 11:55:34,305:INFO:Starting cross validation
+2023-08-02 11:55:34,305:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,323:INFO:Calculating mean and std
+2023-08-02 11:55:34,323:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,325:INFO:Uploading results into container
+2023-08-02 11:55:34,326:INFO:Uploading model into container now
+2023-08-02 11:55:34,326:INFO:create_model_container: 25
+2023-08-02 11:55:34,326:INFO:master_model_container: 25
+2023-08-02 11:55:34,326:INFO:display_container: 3
+2023-08-02 11:55:34,327:INFO:PowerTransformedTargetRegressor(alpha=1.0, copy_X=True,
+                                eps=2.220446049250313e-16, fit_intercept=True,
+                                fit_path=True, jitter=None, max_iter=500,
+                                normalize='deprecated', positive=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                precompute='auto', random_state=123,
+                                regressor=LassoLars(alpha=1.0, copy_X=True,
+                                                    eps=2.220446049250313e-16,
+                                                    fit_intercept=True,
+                                                    fit_path=True, jitter=None,
+                                                    max_iter=500,
+                                                    normalize='deprecated',
+                                                    positive=False,
+                                                    precompute='auto',
+                                                    random_state=123,
+                                                    verbose=False),
+                                verbose=False)
+2023-08-02 11:55:34,327:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,436:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,436:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,443:INFO:Initializing Orthogonal Matching Pursuit
+2023-08-02 11:55:34,443:INFO:Total runtime is 0.016147597630818685 minutes
+2023-08-02 11:55:34,447:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,447:INFO:Initializing create_model()
+2023-08-02 11:55:34,447:INFO:create_model(estimator=omp, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,447:INFO:Checking exceptions
+2023-08-02 11:55:34,448:INFO:Importing libraries
+2023-08-02 11:55:34,448:INFO:Copying training dataset
+2023-08-02 11:55:34,448:INFO:Defining folds
+2023-08-02 11:55:34,448:INFO:Declaring metric variables
+2023-08-02 11:55:34,453:INFO:Importing untrained model
+2023-08-02 11:55:34,457:INFO:Orthogonal Matching Pursuit Imported succesfully
+2023-08-02 11:55:34,464:INFO:Starting cross validation
+2023-08-02 11:55:34,464:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,492:INFO:Calculating mean and std
+2023-08-02 11:55:34,493:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,496:INFO:Uploading results into container
+2023-08-02 11:55:34,496:INFO:Uploading model into container now
+2023-08-02 11:55:34,496:INFO:create_model_container: 26
+2023-08-02 11:55:34,497:INFO:master_model_container: 26
+2023-08-02 11:55:34,497:INFO:display_container: 3
+2023-08-02 11:55:34,497:INFO:PowerTransformedTargetRegressor(fit_intercept=True, n_nonzero_coefs=None,
+                                normalize='deprecated',
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                precompute='auto',
+                                regressor=OrthogonalMatchingPursuit(fit_intercept=True,
+                                                                    n_nonzero_coefs=None,
+                                                                    normalize='deprecated',
+                                                                    precompute='auto',
+                                                                    tol=None),
+                                tol=None)
+2023-08-02 11:55:34,497:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,603:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,603:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,610:INFO:Initializing Bayesian Ridge
+2023-08-02 11:55:34,610:INFO:Total runtime is 0.018931770324707033 minutes
+2023-08-02 11:55:34,614:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,615:INFO:Initializing create_model()
+2023-08-02 11:55:34,615:INFO:create_model(estimator=br, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,615:INFO:Checking exceptions
+2023-08-02 11:55:34,615:INFO:Importing libraries
+2023-08-02 11:55:34,615:INFO:Copying training dataset
+2023-08-02 11:55:34,616:INFO:Defining folds
+2023-08-02 11:55:34,616:INFO:Declaring metric variables
+2023-08-02 11:55:34,621:INFO:Importing untrained model
+2023-08-02 11:55:34,624:INFO:Bayesian Ridge Imported succesfully
+2023-08-02 11:55:34,632:INFO:Starting cross validation
+2023-08-02 11:55:34,632:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,650:INFO:Calculating mean and std
+2023-08-02 11:55:34,651:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,654:INFO:Uploading results into container
+2023-08-02 11:55:34,654:INFO:Uploading model into container now
+2023-08-02 11:55:34,654:INFO:create_model_container: 27
+2023-08-02 11:55:34,654:INFO:master_model_container: 27
+2023-08-02 11:55:34,654:INFO:display_container: 3
+2023-08-02 11:55:34,655:INFO:PowerTransformedTargetRegressor(alpha_1=1e-06, alpha_2=1e-06, alpha_init=None,
+                                compute_score=False, copy_X=True,
+                                fit_intercept=True, lambda_1=1e-06,
+                                lambda_2=1e-06, lambda_init=None, n_iter=300,
+                                normalize='deprecated',
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                regressor=BayesianRidge(alpha_1=1e-06,
+                                                        alpha_2=1e-06,
+                                                        alpha_init=None,
+                                                        compute_score=False,
+                                                        copy_X=True,
+                                                        fit_intercept=True,
+                                                        lambda_1=1e-06,
+                                                        lambda_2=1e-06,
+                                                        lambda_init=None,
+                                                        n_iter=300,
+                                                        normalize='deprecated',
+                                                        tol=0.001,
+                                                        verbose=False),
+                                tol=0.001, verbose=False)
+2023-08-02 11:55:34,655:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,763:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,763:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,770:INFO:Initializing Passive Aggressive Regressor
+2023-08-02 11:55:34,770:INFO:Total runtime is 0.021596507231394453 minutes
+2023-08-02 11:55:34,774:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,775:INFO:Initializing create_model()
+2023-08-02 11:55:34,775:INFO:create_model(estimator=par, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,775:INFO:Checking exceptions
+2023-08-02 11:55:34,775:INFO:Importing libraries
+2023-08-02 11:55:34,775:INFO:Copying training dataset
+2023-08-02 11:55:34,776:INFO:Defining folds
+2023-08-02 11:55:34,776:INFO:Declaring metric variables
+2023-08-02 11:55:34,780:INFO:Importing untrained model
+2023-08-02 11:55:34,784:INFO:Passive Aggressive Regressor Imported succesfully
+2023-08-02 11:55:34,791:INFO:Starting cross validation
+2023-08-02 11:55:34,791:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,807:INFO:Calculating mean and std
+2023-08-02 11:55:34,808:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,811:INFO:Uploading results into container
+2023-08-02 11:55:34,811:INFO:Uploading model into container now
+2023-08-02 11:55:34,811:INFO:create_model_container: 28
+2023-08-02 11:55:34,811:INFO:master_model_container: 28
+2023-08-02 11:55:34,811:INFO:display_container: 3
+2023-08-02 11:55:34,812:INFO:PowerTransformedTargetRegressor(C=1.0, average=False, early_stopping=False,
+                                epsilon=0.1, fit_intercept=True,
+                                loss='epsilon_insensitive', max_iter=1000,
+                                n_iter_no_change=5,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=123,
+                                regressor=PassiveAggressiveRegressor(C=1.0,
+                                                                     average=False,
+                                                                     early_stopping=False,
+                                                                     epsilon=0.1,
+                                                                     fit_intercept=True,
+                                                                     loss='epsilon_insensitive',
+                                                                     max_iter=1000,
+                                                                     n_iter_no_change=5,
+                                                                     random_state=123,
+                                                                     shuffle=True,
+                                                                     tol=0.001,
+                                                                     validation_fraction=0.1,
+                                                                     verbose=0,
+                                                                     warm_start=False),
+                                shuffle=True, tol=0.001,
+                                validation_fraction=0.1, verbose=0,
+                                warm_start=False)
+2023-08-02 11:55:34,812:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:34,915:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:34,915:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,923:INFO:Initializing Huber Regressor
+2023-08-02 11:55:34,923:INFO:Total runtime is 0.024137508869171147 minutes
+2023-08-02 11:55:34,927:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:34,927:INFO:Initializing create_model()
+2023-08-02 11:55:34,927:INFO:create_model(estimator=huber, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:34,928:INFO:Checking exceptions
+2023-08-02 11:55:34,928:INFO:Importing libraries
+2023-08-02 11:55:34,928:INFO:Copying training dataset
+2023-08-02 11:55:34,928:INFO:Defining folds
+2023-08-02 11:55:34,928:INFO:Declaring metric variables
+2023-08-02 11:55:34,932:INFO:Importing untrained model
+2023-08-02 11:55:34,936:INFO:Huber Regressor Imported succesfully
+2023-08-02 11:55:34,943:INFO:Starting cross validation
+2023-08-02 11:55:34,944:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:34,975:INFO:Calculating mean and std
+2023-08-02 11:55:34,976:INFO:Creating metrics dataframe
+2023-08-02 11:55:34,978:INFO:Uploading results into container
+2023-08-02 11:55:34,978:INFO:Uploading model into container now
+2023-08-02 11:55:34,978:INFO:create_model_container: 29
+2023-08-02 11:55:34,978:INFO:master_model_container: 29
+2023-08-02 11:55:34,978:INFO:display_container: 3
+2023-08-02 11:55:34,979:INFO:PowerTransformedTargetRegressor(alpha=0.0001, epsilon=1.35, fit_intercept=True,
+                                max_iter=100,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                regressor=HuberRegressor(alpha=0.0001,
+                                                         epsilon=1.35,
+                                                         fit_intercept=True,
+                                                         max_iter=100,
+                                                         tol=1e-05,
+                                                         warm_start=False),
+                                tol=1e-05, warm_start=False)
+2023-08-02 11:55:34,979:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:35,083:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:35,083:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,091:INFO:Initializing K Neighbors Regressor
+2023-08-02 11:55:35,091:INFO:Total runtime is 0.026935029029846194 minutes
+2023-08-02 11:55:35,095:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:35,096:INFO:Initializing create_model()
+2023-08-02 11:55:35,096:INFO:create_model(estimator=knn, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:35,096:INFO:Checking exceptions
+2023-08-02 11:55:35,096:INFO:Importing libraries
+2023-08-02 11:55:35,096:INFO:Copying training dataset
+2023-08-02 11:55:35,097:INFO:Defining folds
+2023-08-02 11:55:35,097:INFO:Declaring metric variables
+2023-08-02 11:55:35,101:INFO:Importing untrained model
+2023-08-02 11:55:35,105:INFO:K Neighbors Regressor Imported succesfully
+2023-08-02 11:55:35,112:INFO:Starting cross validation
+2023-08-02 11:55:35,113:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:35,138:INFO:Calculating mean and std
+2023-08-02 11:55:35,138:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,141:INFO:Uploading results into container
+2023-08-02 11:55:35,141:INFO:Uploading model into container now
+2023-08-02 11:55:35,141:INFO:create_model_container: 30
+2023-08-02 11:55:35,141:INFO:master_model_container: 30
+2023-08-02 11:55:35,141:INFO:display_container: 3
+2023-08-02 11:55:35,142:INFO:PowerTransformedTargetRegressor(algorithm='auto', leaf_size=30,
+                                metric='minkowski', metric_params=None,
+                                n_jobs=-1, n_neighbors=5, p=2,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                regressor=KNeighborsRegressor(algorithm='auto',
+                                                              leaf_size=30,
+                                                              metric='minkowski',
+                                                              metric_params=None,
+                                                              n_jobs=-1,
+                                                              n_neighbors=5,
+                                                              p=2,
+                                                              weights='uniform'),
+                                weights='uniform')
+2023-08-02 11:55:35,142:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:35,251:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:35,251:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,259:INFO:Initializing Decision Tree Regressor
+2023-08-02 11:55:35,259:INFO:Total runtime is 0.029738652706146243 minutes
+2023-08-02 11:55:35,263:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:35,263:INFO:Initializing create_model()
+2023-08-02 11:55:35,263:INFO:create_model(estimator=dt, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:35,263:INFO:Checking exceptions
+2023-08-02 11:55:35,263:INFO:Importing libraries
+2023-08-02 11:55:35,264:INFO:Copying training dataset
+2023-08-02 11:55:35,264:INFO:Defining folds
+2023-08-02 11:55:35,264:INFO:Declaring metric variables
+2023-08-02 11:55:35,269:INFO:Importing untrained model
+2023-08-02 11:55:35,272:INFO:Decision Tree Regressor Imported succesfully
+2023-08-02 11:55:35,280:INFO:Starting cross validation
+2023-08-02 11:55:35,280:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:35,296:INFO:Calculating mean and std
+2023-08-02 11:55:35,297:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,300:INFO:Uploading results into container
+2023-08-02 11:55:35,300:INFO:Uploading model into container now
+2023-08-02 11:55:35,300:INFO:create_model_container: 31
+2023-08-02 11:55:35,300:INFO:master_model_container: 31
+2023-08-02 11:55:35,300:INFO:display_container: 3
+2023-08-02 11:55:35,301:INFO:PowerTransformedTargetRegressor(ccp_alpha=0.0, criterion='squared_error',
+                                max_depth=None, max_features=None,
+                                max_leaf_nodes=None, min_impurity_decrease=0.0,
+                                min_samples_leaf=1, min_samples_split=2,
+                                min_weight_fraction_leaf=0.0,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=123,
+                                regressor=DecisionTreeRegressor(ccp_alpha=0.0,
+                                                                criterion='squared_error',
+                                                                max_depth=None,
+                                                                max_features=None,
+                                                                max_leaf_nodes=None,
+                                                                min_impurity_decrease=0.0,
+                                                                min_samples_leaf=1,
+                                                                min_samples_split=2,
+                                                                min_weight_fraction_leaf=0.0,
+                                                                random_state=123,
+                                                                splitter='best'),
+                                splitter='best')
+2023-08-02 11:55:35,301:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:35,413:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:35,413:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,421:INFO:Initializing Random Forest Regressor
+2023-08-02 11:55:35,422:INFO:Total runtime is 0.032466244697570805 minutes
+2023-08-02 11:55:35,426:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:35,427:INFO:Initializing create_model()
+2023-08-02 11:55:35,427:INFO:create_model(estimator=rf, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:35,427:INFO:Checking exceptions
+2023-08-02 11:55:35,428:INFO:Importing libraries
+2023-08-02 11:55:35,428:INFO:Copying training dataset
+2023-08-02 11:55:35,428:INFO:Defining folds
+2023-08-02 11:55:35,428:INFO:Declaring metric variables
+2023-08-02 11:55:35,432:INFO:Importing untrained model
+2023-08-02 11:55:35,438:INFO:Random Forest Regressor Imported succesfully
+2023-08-02 11:55:35,446:INFO:Starting cross validation
+2023-08-02 11:55:35,446:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:35,574:INFO:Calculating mean and std
+2023-08-02 11:55:35,575:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,577:INFO:Uploading results into container
+2023-08-02 11:55:35,577:INFO:Uploading model into container now
+2023-08-02 11:55:35,577:INFO:create_model_container: 32
+2023-08-02 11:55:35,578:INFO:master_model_container: 32
+2023-08-02 11:55:35,578:INFO:display_container: 3
+2023-08-02 11:55:35,579:INFO:PowerTransformedTargetRegressor(bootstrap=True, ccp_alpha=0.0,
+                                criterion='squared_error', max_depth=None,
+                                max_features='auto', max_leaf_nodes=None,
+                                max_samples=None, min_impurity_decrease=0.0,
+                                min_samples_leaf=1, min_samples_split=2,
+                                min_weight_fraction_leaf=0.0, n_estimators=100,
+                                n_jobs=-1, oob_score=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_s...
+                                regressor=RandomForestRegressor(bootstrap=True,
+                                                                ccp_alpha=0.0,
+                                                                criterion='squared_error',
+                                                                max_depth=None,
+                                                                max_features='auto',
+                                                                max_leaf_nodes=None,
+                                                                max_samples=None,
+                                                                min_impurity_decrease=0.0,
+                                                                min_samples_leaf=1,
+                                                                min_samples_split=2,
+                                                                min_weight_fraction_leaf=0.0,
+                                                                n_estimators=100,
+                                                                n_jobs=-1,
+                                                                oob_score=False,
+                                                                random_state=123,
+                                                                verbose=0,
+                                                                warm_start=False),
+                                verbose=0, warm_start=False)
+2023-08-02 11:55:35,579:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:35,693:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:35,693:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,701:INFO:Initializing Extra Trees Regressor
+2023-08-02 11:55:35,702:INFO:Total runtime is 0.03711840709050497 minutes
+2023-08-02 11:55:35,707:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:35,707:INFO:Initializing create_model()
+2023-08-02 11:55:35,707:INFO:create_model(estimator=et, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:35,707:INFO:Checking exceptions
+2023-08-02 11:55:35,707:INFO:Importing libraries
+2023-08-02 11:55:35,707:INFO:Copying training dataset
+2023-08-02 11:55:35,707:INFO:Defining folds
+2023-08-02 11:55:35,708:INFO:Declaring metric variables
+2023-08-02 11:55:35,711:INFO:Importing untrained model
+2023-08-02 11:55:35,715:INFO:Extra Trees Regressor Imported succesfully
+2023-08-02 11:55:35,723:INFO:Starting cross validation
+2023-08-02 11:55:35,723:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:35,832:INFO:Calculating mean and std
+2023-08-02 11:55:35,833:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,836:INFO:Uploading results into container
+2023-08-02 11:55:35,836:INFO:Uploading model into container now
+2023-08-02 11:55:35,836:INFO:create_model_container: 33
+2023-08-02 11:55:35,836:INFO:master_model_container: 33
+2023-08-02 11:55:35,836:INFO:display_container: 3
+2023-08-02 11:55:35,837:INFO:PowerTransformedTargetRegressor(bootstrap=False, ccp_alpha=0.0,
+                                criterion='squared_error', max_depth=None,
+                                max_features='auto', max_leaf_nodes=None,
+                                max_samples=None, min_impurity_decrease=0.0,
+                                min_samples_leaf=1, min_samples_split=2,
+                                min_weight_fraction_leaf=0.0, n_estimators=100,
+                                n_jobs=-1, oob_score=False,
+                                power_transformer_method='box-cox',
+                                power_transformer_...
+                                regressor=ExtraTreesRegressor(bootstrap=False,
+                                                              ccp_alpha=0.0,
+                                                              criterion='squared_error',
+                                                              max_depth=None,
+                                                              max_features='auto',
+                                                              max_leaf_nodes=None,
+                                                              max_samples=None,
+                                                              min_impurity_decrease=0.0,
+                                                              min_samples_leaf=1,
+                                                              min_samples_split=2,
+                                                              min_weight_fraction_leaf=0.0,
+                                                              n_estimators=100,
+                                                              n_jobs=-1,
+                                                              oob_score=False,
+                                                              random_state=123,
+                                                              verbose=0,
+                                                              warm_start=False),
+                                verbose=0, warm_start=False)
+2023-08-02 11:55:35,837:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:35,953:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:35,953:INFO:Creating metrics dataframe
+2023-08-02 11:55:35,961:INFO:Initializing AdaBoost Regressor
+2023-08-02 11:55:35,961:INFO:Total runtime is 0.04143636226654053 minutes
+2023-08-02 11:55:35,966:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:35,967:INFO:Initializing create_model()
+2023-08-02 11:55:35,968:INFO:create_model(estimator=ada, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:35,968:INFO:Checking exceptions
+2023-08-02 11:55:35,968:INFO:Importing libraries
+2023-08-02 11:55:35,968:INFO:Copying training dataset
+2023-08-02 11:55:35,969:INFO:Defining folds
+2023-08-02 11:55:35,969:INFO:Declaring metric variables
+2023-08-02 11:55:35,974:INFO:Importing untrained model
+2023-08-02 11:55:35,978:INFO:AdaBoost Regressor Imported succesfully
+2023-08-02 11:55:35,985:INFO:Starting cross validation
+2023-08-02 11:55:35,985:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:36,032:INFO:Calculating mean and std
+2023-08-02 11:55:36,033:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,036:INFO:Uploading results into container
+2023-08-02 11:55:36,036:INFO:Uploading model into container now
+2023-08-02 11:55:36,036:INFO:create_model_container: 34
+2023-08-02 11:55:36,036:INFO:master_model_container: 34
+2023-08-02 11:55:36,036:INFO:display_container: 3
+2023-08-02 11:55:36,037:INFO:PowerTransformedTargetRegressor(base_estimator=None, learning_rate=1.0,
+                                loss='linear', n_estimators=50,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=123,
+                                regressor=AdaBoostRegressor(base_estimator=None,
+                                                            learning_rate=1.0,
+                                                            loss='linear',
+                                                            n_estimators=50,
+                                                            random_state=123))
+2023-08-02 11:55:36,037:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:36,142:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:36,142:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,149:INFO:Initializing Gradient Boosting Regressor
+2023-08-02 11:55:36,149:INFO:Total runtime is 0.04457687139511109 minutes
+2023-08-02 11:55:36,155:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:36,155:INFO:Initializing create_model()
+2023-08-02 11:55:36,155:INFO:create_model(estimator=gbr, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:36,155:INFO:Checking exceptions
+2023-08-02 11:55:36,155:INFO:Importing libraries
+2023-08-02 11:55:36,156:INFO:Copying training dataset
+2023-08-02 11:55:36,156:INFO:Defining folds
+2023-08-02 11:55:36,156:INFO:Declaring metric variables
+2023-08-02 11:55:36,160:INFO:Importing untrained model
+2023-08-02 11:55:36,163:INFO:Gradient Boosting Regressor Imported succesfully
+2023-08-02 11:55:36,171:INFO:Starting cross validation
+2023-08-02 11:55:36,171:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:36,201:INFO:Calculating mean and std
+2023-08-02 11:55:36,202:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,206:INFO:Uploading results into container
+2023-08-02 11:55:36,206:INFO:Uploading model into container now
+2023-08-02 11:55:36,206:INFO:create_model_container: 35
+2023-08-02 11:55:36,206:INFO:master_model_container: 35
+2023-08-02 11:55:36,206:INFO:display_container: 3
+2023-08-02 11:55:36,207:INFO:PowerTransformedTargetRegressor(alpha=0.9, ccp_alpha=0.0,
+                                criterion='friedman_mse', init=None,
+                                learning_rate=0.1, loss='squared_error',
+                                max_depth=3, max_features=None,
+                                max_leaf_nodes=None, min_impurity_decrease=0.0,
+                                min_samples_leaf=1, min_samples_split=2,
+                                min_weight_fraction_leaf=0.0, n_estimators=100,
+                                n_iter_no_change=None,
+                                power_transformer_method='box-cox',
+                                po...
+                                                                    max_depth=3,
+                                                                    max_features=None,
+                                                                    max_leaf_nodes=None,
+                                                                    min_impurity_decrease=0.0,
+                                                                    min_samples_leaf=1,
+                                                                    min_samples_split=2,
+                                                                    min_weight_fraction_leaf=0.0,
+                                                                    n_estimators=100,
+                                                                    n_iter_no_change=None,
+                                                                    random_state=123,
+                                                                    subsample=1.0,
+                                                                    tol=0.0001,
+                                                                    validation_fraction=0.1,
+                                                                    verbose=0,
+                                                                    warm_start=False),
+                                subsample=1.0, tol=0.0001,
+                                validation_fraction=0.1, verbose=0,
+                                warm_start=False)
+2023-08-02 11:55:36,207:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:36,321:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:36,321:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,330:INFO:Initializing Extreme Gradient Boosting
+2023-08-02 11:55:36,330:INFO:Total runtime is 0.04759561618169149 minutes
+2023-08-02 11:55:36,335:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:36,336:INFO:Initializing create_model()
+2023-08-02 11:55:36,336:INFO:create_model(estimator=xgboost, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:36,336:INFO:Checking exceptions
+2023-08-02 11:55:36,336:INFO:Importing libraries
+2023-08-02 11:55:36,336:INFO:Copying training dataset
+2023-08-02 11:55:36,337:INFO:Defining folds
+2023-08-02 11:55:36,337:INFO:Declaring metric variables
+2023-08-02 11:55:36,340:INFO:Importing untrained model
+2023-08-02 11:55:36,345:INFO:Extreme Gradient Boosting Imported succesfully
+2023-08-02 11:55:36,355:INFO:Starting cross validation
+2023-08-02 11:55:36,356:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:36,412:INFO:Calculating mean and std
+2023-08-02 11:55:36,413:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,415:INFO:Uploading results into container
+2023-08-02 11:55:36,415:INFO:Uploading model into container now
+2023-08-02 11:55:36,415:INFO:create_model_container: 36
+2023-08-02 11:55:36,415:INFO:master_model_container: 36
+2023-08-02 11:55:36,415:INFO:display_container: 3
+2023-08-02 11:55:36,416:INFO:PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 11:55:36,416:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:36,530:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:36,530:INFO:Creating metrics dataframe
+2023-08-02 11:55:36,539:INFO:Initializing Light Gradient Boosting Machine
+2023-08-02 11:55:36,539:INFO:Total runtime is 0.05107237497965495 minutes
+2023-08-02 11:55:36,544:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:36,545:INFO:Initializing create_model()
+2023-08-02 11:55:36,545:INFO:create_model(estimator=lightgbm, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:36,545:INFO:Checking exceptions
+2023-08-02 11:55:36,545:INFO:Importing libraries
+2023-08-02 11:55:36,545:INFO:Copying training dataset
+2023-08-02 11:55:36,546:INFO:Defining folds
+2023-08-02 11:55:36,546:INFO:Declaring metric variables
+2023-08-02 11:55:36,549:INFO:Importing untrained model
+2023-08-02 11:55:36,553:INFO:Light Gradient Boosting Machine Imported succesfully
+2023-08-02 11:55:36,562:INFO:Starting cross validation
+2023-08-02 11:55:36,562:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:37,153:INFO:Calculating mean and std
+2023-08-02 11:55:37,154:INFO:Creating metrics dataframe
+2023-08-02 11:55:37,157:INFO:Uploading results into container
+2023-08-02 11:55:37,157:INFO:Uploading model into container now
+2023-08-02 11:55:37,157:INFO:create_model_container: 37
+2023-08-02 11:55:37,157:INFO:master_model_container: 37
+2023-08-02 11:55:37,157:INFO:display_container: 3
+2023-08-02 11:55:37,159:INFO:PowerTransformedTargetRegressor(boosting_type='gbdt', class_weight=None,
+                                colsample_bytree=1.0, importance_type='split',
+                                learning_rate=0.1, max_depth=-1,
+                                min_child_samples=20, min_child_weight=0.001,
+                                min_split_gain=0.0, n_estimators=100, n_jobs=-1,
+                                num_leaves=31, objective=None,
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=1...
+                                                        importance_type='split',
+                                                        learning_rate=0.1,
+                                                        max_depth=-1,
+                                                        min_child_samples=20,
+                                                        min_child_weight=0.001,
+                                                        min_split_gain=0.0,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        num_leaves=31,
+                                                        objective=None,
+                                                        random_state=123,
+                                                        reg_alpha=0.0,
+                                                        reg_lambda=0.0,
+                                                        silent='warn',
+                                                        subsample=1.0,
+                                                        subsample_for_bin=200000,
+                                                        subsample_freq=0),
+                                silent='warn', subsample=1.0,
+                                subsample_for_bin=200000, subsample_freq=0)
+2023-08-02 11:55:37,159:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:37,276:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:37,277:INFO:Creating metrics dataframe
+2023-08-02 11:55:37,287:INFO:Initializing CatBoost Regressor
+2023-08-02 11:55:37,288:INFO:Total runtime is 0.06355271339416504 minutes
+2023-08-02 11:55:37,295:INFO:SubProcess create_model() called ==================================
+2023-08-02 11:55:37,295:INFO:Initializing create_model()
+2023-08-02 11:55:37,295:INFO:create_model(estimator=catboost, fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, display=<pycaret.internal.Display.Display object at 0x000001E978736E20>, kwargs={})
+2023-08-02 11:55:37,295:INFO:Checking exceptions
+2023-08-02 11:55:37,296:INFO:Importing libraries
+2023-08-02 11:55:37,296:INFO:Copying training dataset
+2023-08-02 11:55:37,296:INFO:Defining folds
+2023-08-02 11:55:37,297:INFO:Declaring metric variables
+2023-08-02 11:55:37,305:INFO:Importing untrained model
+2023-08-02 11:55:37,312:INFO:CatBoost Regressor Imported succesfully
+2023-08-02 11:55:37,330:INFO:Starting cross validation
+2023-08-02 11:55:37,331:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 11:55:38,118:INFO:Calculating mean and std
+2023-08-02 11:55:38,119:INFO:Creating metrics dataframe
+2023-08-02 11:55:38,122:INFO:Uploading results into container
+2023-08-02 11:55:38,123:INFO:Uploading model into container now
+2023-08-02 11:55:38,123:INFO:create_model_container: 38
+2023-08-02 11:55:38,123:INFO:master_model_container: 38
+2023-08-02 11:55:38,123:INFO:display_container: 3
+2023-08-02 11:55:38,123:INFO:PowerTransformedTargetRegressor(border_count=254, loss_function='RMSE',
+                                power_transformer_method='box-cox',
+                                power_transformer_standardize=True,
+                                random_state=123,
+                                regressor=<catboost.core.CatBoostRegressor object at 0x000001E902D97FD0>,
+                                task_type='CPU', verbose=False)
+2023-08-02 11:55:38,123:INFO:create_model() succesfully completed......................................
+2023-08-02 11:55:38,244:INFO:SubProcess create_model() end ==================================
+2023-08-02 11:55:38,245:INFO:Creating metrics dataframe
+2023-08-02 11:55:38,268:INFO:Initializing create_model()
+2023-08-02 11:55:38,268:INFO:create_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), fold=TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, display=None, kwargs={})
+2023-08-02 11:55:38,269:INFO:Checking exceptions
+2023-08-02 11:55:38,269:INFO:Importing libraries
+2023-08-02 11:55:38,269:INFO:Copying training dataset
+2023-08-02 11:55:38,270:INFO:Defining folds
+2023-08-02 11:55:38,270:INFO:Declaring metric variables
+2023-08-02 11:55:38,270:INFO:Importing untrained model
+2023-08-02 11:55:38,270:INFO:Declaring custom model
+2023-08-02 11:55:38,272:INFO:Extreme Gradient Boosting Imported succesfully
+2023-08-02 11:55:38,272:INFO:Cross validation set to False
+2023-08-02 11:55:38,272:INFO:Fitting Model
+2023-08-02 11:55:38,317:INFO:PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 11:55:38,317:INFO:create_models() succesfully completed......................................
+2023-08-02 11:55:38,473:INFO:create_model_container: 38
+2023-08-02 11:55:38,473:INFO:master_model_container: 38
+2023-08-02 11:55:38,473:INFO:display_container: 3
+2023-08-02 11:55:38,474:INFO:PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 11:55:38,474:INFO:compare_models() succesfully completed......................................
+2023-08-02 11:56:08,638:INFO:Initializing predict_model()
+2023-08-02 11:56:08,638:INFO:predict_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), probability_threshold=None, encoded_labels=True, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None)
+2023-08-02 11:56:08,638:INFO:Checking exceptions
+2023-08-02 11:56:08,638:INFO:Preloading libraries
+2023-08-02 11:56:08,638:INFO:Preparing display monitor
+2023-08-02 13:04:47,439:INFO:Initializing predict_model()
+2023-08-02 13:04:47,439:INFO:predict_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), probability_threshold=None, encoded_labels=True, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None)
+2023-08-02 13:04:47,440:INFO:Checking exceptions
+2023-08-02 13:04:47,440:INFO:Preloading libraries
+2023-08-02 13:04:47,440:INFO:Preparing display monitor
+2023-08-02 13:06:25,134:INFO:Initializing predict_model()
+2023-08-02 13:06:25,134:INFO:predict_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), probability_threshold=None, encoded_labels=True, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None)
+2023-08-02 13:06:25,134:INFO:Checking exceptions
+2023-08-02 13:06:25,134:INFO:Preloading libraries
+2023-08-02 13:06:25,134:INFO:Preparing display monitor
+2023-08-02 13:09:20,976:INFO:Initializing predict_model()
+2023-08-02 13:09:20,976:INFO:predict_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), probability_threshold=None, encoded_labels=True, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None)
+2023-08-02 13:09:20,977:INFO:Checking exceptions
+2023-08-02 13:09:20,977:INFO:Preloading libraries
+2023-08-02 13:09:20,977:INFO:Preparing display monitor
+2023-08-02 13:12:12,526:INFO:Initializing finalize_model()
+2023-08-02 13:12:12,526:INFO:finalize_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), fit_kwargs=None, groups=None, model_only=True, display=None)
+2023-08-02 13:12:12,527:INFO:Finalizing PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 13:12:12,528:INFO:Initializing create_model()
+2023-08-02 13:12:12,528:INFO:create_model(estimator=PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...), fold=None, round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, display=None, kwargs={})
+2023-08-02 13:12:12,528:INFO:Checking exceptions
+2023-08-02 13:12:12,528:INFO:Importing libraries
+2023-08-02 13:12:12,528:INFO:Copying training dataset
+2023-08-02 13:12:12,528:INFO:Defining folds
+2023-08-02 13:12:12,528:INFO:Declaring metric variables
+2023-08-02 13:12:12,528:INFO:Importing untrained model
+2023-08-02 13:12:12,528:INFO:Declaring custom model
+2023-08-02 13:12:12,530:INFO:Extreme Gradient Boosting Imported succesfully
+2023-08-02 13:12:12,530:INFO:Starting cross validation
+2023-08-02 13:12:12,530:INFO:Cross validating with TimeSeriesSplit(gap=0, max_train_size=None, n_splits=3, test_size=None), n_jobs=-1
+2023-08-02 13:12:16,449:INFO:Calculating mean and std
+2023-08-02 13:12:16,449:INFO:Creating metrics dataframe
+2023-08-02 13:12:16,452:INFO:Finalizing model
+2023-08-02 13:12:16,496:INFO:Uploading results into container
+2023-08-02 13:12:16,496:INFO:Uploading model into container now
+2023-08-02 13:12:16,496:INFO:create_model_container: 39
+2023-08-02 13:12:16,496:INFO:master_model_container: 39
+2023-08-02 13:12:16,496:INFO:display_container: 5
+2023-08-02 13:12:16,497:INFO:PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 13:12:16,497:INFO:create_model() succesfully completed......................................
+2023-08-02 13:12:16,646:INFO:create_model_container: 39
+2023-08-02 13:12:16,646:INFO:master_model_container: 39
+2023-08-02 13:12:16,646:INFO:display_container: 4
+2023-08-02 13:12:16,647:INFO:PowerTransformedTargetRegressor(base_score=None, booster='gbtree',
+                                callbacks=None, colsample_bylevel=None,
+                                colsample_bynode=None, colsample_bytree=None,
+                                early_stopping_rounds=None,
+                                enable_categorical=False, eval_metric=None,
+                                feature_types=None, gamma=None, gpu_id=None,
+                                grow_policy=None, importance_type=None,
+                                interaction_constraints=None,
+                                learning_rate=None, max_bin=None,
+                                max_cat_threshold=None, max_cat_to_onehot=None,
+                                max_delta_step=None, max_depth=None,
+                                max_leaves=None, min_child_weight=None,
+                                missing=nan, monotone_constraints=None,
+                                n_estimators=100, n_jobs=-1,
+                                num_parallel_tree=None,
+                                objective='reg:squarederror',
+                                power_transformer_method='box-cox', ...)
+2023-08-02 13:12:16,647:INFO:finalize_model() succesfully completed......................................
