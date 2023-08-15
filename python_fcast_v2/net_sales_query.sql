@@ -1,3 +1,4 @@
+WITH T1 AS (
 SELECT
     DEPARTMENT,
     BU_ENTITY,
@@ -22,4 +23,23 @@ FROM ANALYTICS.SALES."sales_summary_v"
 WHERE BU_ENTITY IN ('155', '310', '165')
     AND DATE_TRUNC('month', TRX_DATE) >= '2020-01-01'
 GROUP BY 
-	ALL)
+	ALL) )
+SELECT *
+FROM T1 
+-- dep-ent combinations with budget
+WHERE DEP_ENT IN (
+    '160_155',
+    '170_155',
+    '200_155',
+    '200_310',
+    '210_155',
+    '210_165',
+    '210_310',
+    '220_155',
+    '220_310',
+    '240_155',
+    '250_155',
+    '250_165',
+    '250_310',
+    '260_155'
+) AND MONTH >= '2016-01-01'
