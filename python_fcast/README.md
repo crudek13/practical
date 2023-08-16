@@ -1,5 +1,7 @@
 # Forecasting in Python
 
+Resources: https://github.com/lmmentel/awesome-time-series
+
 Methodologies tried:
 1. pycaret - Moez Ali
   a. regression module
@@ -10,3 +12,5 @@ Methodologies tried:
   b. grid search
 
 4. NeuroProphet
+
+
