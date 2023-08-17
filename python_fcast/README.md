@@ -11,6 +11,7 @@ Methodologies tried:
   a. auto_arima
   b. grid search
 
-4. NeuroProphet
+4. Neural Prophet
 
+5. AutoTS
 
