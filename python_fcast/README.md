@@ -15,3 +15,6 @@ Methodologies tried:
 
 5. AutoTS
 
+To Test:
+ThymeBoost
+https://medium.com/analytics-vidhya/thymeboost-7248297d3165
