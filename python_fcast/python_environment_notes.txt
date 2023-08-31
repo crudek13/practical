@@ -1,6 +1,6 @@
 Creating a new environment and downloading the latest version of pycaret. Done in the Anaconda Prompt
 
-https://www.google.com/search?q=hjow+to+install+the+latest+pycaret+version+on+anaconda&rlz=1C1GCEA_enUS1012US1012&oq=hjow+to+install+the+latest+pycaret+version+on+anaconda&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRhA0gEJMTAxNzVqMWo0qAIAsAIA&sourceid=chrome&ie=UTF-8#kpvalbx=_82fNZLKrM7qiptQPnJCt2Ac_30
+https://www.youtube.com/watch?v=WQAKswAS7Fs
 
 1. conda create -n newpycaret python=3.9.13    # create enironment called newpycaret
    1. need to check what version of python is on computer (python --version)    # run in normal terminal not anaconda prompt
