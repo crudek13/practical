@@ -7,4 +7,4 @@
 
 
 
-Testlazypredict for regression and classification
+Test lazypredict package for regression and classification
