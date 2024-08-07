@@ -48,9 +48,9 @@ pip freeze is important because you can copy it directly in to a text file
 
 cls - clear screen
 
-
 dir - events that happened in dir
 
+git status
 
 
 6. 
