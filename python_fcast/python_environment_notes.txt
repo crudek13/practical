@@ -14,3 +14,51 @@ https://www.youtube.com/watch?v=WQAKswAS7Fs
 
 working with conda in vscode
 https://stackoverflow.com/questions/56450606/how-to-add-anaconda-powershell-to-vscode
+
+
+
+
+
+# NEW VIDEO
+
+https://www.google.com/search?sca_esv=3220abbc16c1298d&sca_upv=1&rlz=1C1GCEA_enUS1012US1012&sxsrf=ADLYWIIiaRg7Hvt11uKTmPuuiwVG2tSPYA:1723044385942&q=venv+and+github&tbm=vid&source=lnms&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWfbQph1uib-VfD_izZO2Y5sC3UdQE5x8XNnxUO1qJLaRIaEtzaSH-OhiOhqt_msDm5okqi8cL1oZ65TIjTcqv6T8esjvThYq9Ns2Gw1OzwscspIdexpXzhODlqfQbECmCysNaSSzqkl4mwSCwPpI0f-CXo5T3zNwXZ2xz4gC8o91irXFbVGpv1XPw8flYeTfLoFheFA&sa=X&ved=2ahUKEwj4lLnEmOOHAxXI5MkDHQQgLKIQ0pQJegQIEBAB&biw=1920&bih=919&dpr=1#fpstate=ive&vld=cid:9654b7df,vid:ueiBryobvOY,st:0
+
+in cmd prompt
+
+1. create the virtual env called vnev_v2
+	python -m venv venv_t2 
+
+2. activate venv_t2
+	venv_t2\Scripts\activate
+	
+
+3. optional - show packages in env	
+	pip freeze or pip list
+
+pip freeze is important because you can copy it directly in to a text file
+
+4. exit virtual env and go back to the system interpreter
+	deactivate
+	
+	
+5. installing packages (single or multiple (list in txt file in directory))
+	pip install pandas 
+	pip install -r requirements.txt
+
+
+cls - clear screen
+
+
+dir - events that happened in dir
+
+
+
+6. 
+	git add --all
+	
+
+7. 
+	git commit -m "carters tests"
+	
+	
+8. 
