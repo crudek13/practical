@@ -10,3 +10,7 @@ https://www.youtube.com/watch?v=WQAKswAS7Fs
 5. pip install ipykernel    # for jupyter notebook in vs code
 
 * ctrl_shift+p to open command palette in vs code. Make sure to select interpreter with new environment (newpycaret)
+
+
+working with conda in vscode
+https://stackoverflow.com/questions/56450606/how-to-add-anaconda-powershell-to-vscode
