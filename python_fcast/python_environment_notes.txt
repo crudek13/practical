@@ -62,3 +62,4 @@ dir - events that happened in dir
 	
 	
 8. 
+	git push
